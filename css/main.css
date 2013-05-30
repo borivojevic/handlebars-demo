@@ -1,0 +1,76 @@
+html {
+	height: 100%;
+}
+body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+h2 {
+	font-size: 20px
+}
+div#container {
+	min-height:100%;
+	position:relative;
+}
+div#center {
+	padding-top: 60px;
+	padding-bottom:130px;
+}
+div.clear {
+	clear: both;
+	margin: 0px;
+	padding: 0px;
+	height: 0px;
+}
+.content {
+	width: 750px;
+	margin: 0 auto;
+}
+#center .content {
+	padding: 20px 0;
+}
+div#player {
+	border: 2px solid black;
+	height: 275px;
+	padding: 10px;
+}
+div#video {
+	background-image: url(../img/player.png);
+	width: 306px;
+	height: 264px;
+	float: left;
+}
+div#comments {
+	float: right;
+	width: 410px;
+}
+div#previous-comments {
+	height: 180px;
+	border: 2px solid black;
+	overflow: auto;
+}
+button#add-comment {
+	vertical-align: bottom;
+}
+.entry {
+	height: 65px;
+	padding: 10px;
+	border-bottom: 2px solid black;
+	margin: 0 10px;
+}
+.entry h2 {
+	margin-bottom: 10px;
+}
+.entry .comment-avatar {
+	float: left;
+	margin: 0 10px 0 0;
+}
+.entry.right {
+	text-align: right;
+	background: #DDD;
+}
+.entry.right img {
+	float: right;
+	margin: 0 0 0 10px;
+}

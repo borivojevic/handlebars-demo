@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="author" content=">Mirko Borivojevic" />
+	<title>Mirko Borivojevic - Professional & Reliable Web Development</title>
+	<meta name="description" content="Mirko Borivojevic - Professional & Reliable Web Development">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<link rel="stylesheet" href="css/reset.css" type="text/css">
+	<link rel="stylesheet" href="css/main.css" type="text/css">
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.1/jquery.min.js"></script>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0-rc.4/handlebars.min.js"></script>
+</head>
+<body>
+	<div id="container">
+		<div class="content">
+			<div id="player">
+				<div id="video"></div>
+				<div id="comments">
+					<h2>Previous Comments</h2>
+					<div id="previous-comments">
+
+					</div>
+					<div id="add-new">
+						<textarea name="comment-text" id="comment-text" cols="39" rows="3" placeholder="Post new comment..."></textarea>
+						<button id="add-comment">Submit</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<script type="text/javascript">
+var addCommentLambda = function() {
+	var comment = $("textarea#comment-text").val();
+	if (comment === "") {
+		return;
+	}
+
+	var commentsCount = $("div#comments .entry").length;
+	var position = (commentsCount % 2 === 0) ? "left" : "right";
+
+	var source = $("#entry-template").html();
+	var template = Handlebars.compile(source);
+
+	var result = template({
+		position: position,
+		avatar: "./img/avatar.png",
+		author: ["John", "Bob", "Jack", "Alise"][commentsCount % 4],
+		body: comment
+	});
+
+	$("div#previous-comments").prepend(result);
+	$("textarea#comment-text").val("");
+};
+$(document).ready(function() {
+	$("button#add-comment").bind("click", addCommentLambda);
+});
+</script>
+<script id="entry-template" type="text/x-handlebars-template">
+	<div class="entry {{position}}">
+		<img class="comment-avatar" src="{{avatar}}"></img>
+		<h2>By {{author}}</h2>
+
+		<div class="body">
+			{{body}}
+		</div>
+	</div>
+</script>
+</body>
+</html>
