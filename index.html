@@ -49,7 +49,7 @@ var addCommentLambda = function() {
 		body: comment
 	});
 
-	$("div#previous-comments").prepend(result);
+	$(result).hide().prependTo("div#previous-comments").slideDown("fast");
 	$("textarea#comment-text").val("");
 };
 $(document).ready(function() {
